@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les genres{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+<style>
+h1 {text-align: center;}
+.wrapper {
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-demo {
+  width: 34ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 2em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+</style>
+<div class="wrapper">
+    <div class="typing-demo">
+       <h1>Les genres et ses actions !</h1>
+    </div>
+</div>
+    <h3>Les Actions:</h3>
+    <a href="{{ path('genre_new') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+     <br><br>
+    <table class="table table-striped">
+        <thead>
+            <tr class="table-success">
+                <th>Nom</th>
+                <th>Actions</th>
+                <th>Ce genre est jamais utilisé</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for genre in genres %}
+            <tr>
+                <td>{{ genre.nom }}</td>
+                   
+                <td>
+
+                    <a href="{{ path('genre_show', {'id': genre.id}) }}" class="btn btn-primary"><i class="fas fa-eye"></i></a>
+                    {# <a href="{{ path('genre_edit', {'id': genre.id}) }}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a> #}
+                </td>
+                 {% if genre.livres.count == 0 %}
+                    <td> {{ include('genre/_delete_form.html.twig') }}</td>
+                    {% endif %}
+                <td>
+                </td>
+                
+            </tr>
+            
+
+            {% else %}
+                <tr>
+                    <td colspan="3">no records found</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

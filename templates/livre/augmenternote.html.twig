@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %} Augmenter La note {% endblock %}
+
+{% block body %}
+<div class="container py-3">
+<h1>Augmenter la note du livre</h1>
+      {{ form(formulaire) }}
+      <a href="{{ path('livre_index') }}" class="btn btn-primary"><i class="icon-refresh"></i> Retour</a>
+</div>
+{% endblock %}

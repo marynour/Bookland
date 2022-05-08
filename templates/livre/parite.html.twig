@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livres{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+    <h3>Livres</h3>
+
+ <a href="{{ path('livre_index') }}" class="btn btn-primary"><i class="icon-refresh"></i> Retour</a>
+ <br><br>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+               
+                <th>Titre du livre</th>
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for livre in livres %}
+            <tr>
+                
+                <td>{{ livre.titre }}</td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Auteur{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+    <h3>Modifier Auteur</h3>
+
+    {{ include('auteur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    
+
+    {{ include('auteur/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

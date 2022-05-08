@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genre{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+
+    <h3>Genre</h3>
+
+    <table class="table">
+        <tbody>
+           
+            <tr>
+                <th>Nom</th>
+                <td>{{ genre.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Auteurs</h3>
+
+   
+    <table class="table">
+        <tbody>
+            {% for livre in genre.livres %}
+     {% for auteur in livre.auteurs %}
+            <tr>
+             {% if auteur.nomprenom.count == 0 %}
+                <th>Auteur</th>
+               
+                <td>{{ auteur.nomprenom }}</td>
+                {% endif %}
+            </tr>
+             {% endfor %}
+    {% endfor %}
+        </tbody>
+    <table>
+   
+
+    <a href="{{ path('genre_index') }}" class="btn btn-primary">Retour</a>
+</div>
+
+{% endblock %}

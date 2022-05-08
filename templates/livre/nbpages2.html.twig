@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Livre index{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+    <h3>Livres</h3>
+ <a href="{{ path('livre_index') }}" > Back</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> le genre donne</th>
+                <th>Nombre total des pages pour le genre donne</th>
+                  
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% if livres !=0 %}
+         {% for nbpages in livres %}
+            <tr>
+                 <td>{{ genre }}</td>
+                 <td>{{ nbpages.somme }}</td>
+            </tr>
+            
+            {% if nbpages.somme == 0  %}
+            <tr>
+    <td>No records found</td>
+    </tr> 
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+        
+           
+        </tbody>
+    </table>
+
+   </div>
+{% endblock %}

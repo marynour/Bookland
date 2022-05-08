@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genre{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+
+    <h3>Genre</h3>
+
+    <table class="table">
+        <tbody>
+        
+            <tr>
+                <th>Nom</th>
+                <td>{{ genre.nom }}</td>
+            </tr>
+             {% for genre in genre.auteurs %}
+    <table class="table">
+        <tbody>
+           
+            <tr>
+                <th>Auteur</th>
+                <td>{{ livre.nomprenom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+</div>
+{% endblock %}

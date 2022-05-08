@@ -1,0 +1,6 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn btn-primary">{{ button_label|default('Sauvegarder') }}</button>
+    <br><br>
+     <a href="{{ path('livre_index') }}" class="btn btn-primary"><i class="icon-refresh"></i> Retour</a>
+{{ form_end(form) }}

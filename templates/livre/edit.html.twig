@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Livre{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+    <h3>Modifier Livre</h3>
+
+    {{ include('livre/_form.html.twig', {'button_label': 'Update'}) }}
+    <br>
+    {{ include('livre/_delete_form.html.twig') }}
+</div>
+{% endblock %}

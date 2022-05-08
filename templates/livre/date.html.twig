@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rechercher{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+    <h3>Rechercher</h3>
+ {{form(form)}}
+
+<a href="{{ path('livre_index') }}" class="btn btn-primary"><i class="icon-refresh"></i> Retour</a>
+ </div>  
+{% endblock %}

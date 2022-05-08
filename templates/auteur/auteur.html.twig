@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteur index{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+    <h3>Auteur index</h3>
+ <a href="{{ path('auteur_new') }}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+ <a href="{{ path('auteur_index') }}" class="btn btn-primary"><i class="icon-refresh"></i>Retour</a>
+ <br><br>
+    <table class="table">
+        <thead>
+            <tr class="table-success">
+               
+                <th>Nom et prenom d'auteur</th>
+                
+               
+            </tr>
+        </thead>
+        <tbody>
+        {% for auteur in auteurs %}
+            <tr>
+                
+                <td>{{ auteur.nomprenom }}</td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+   </div>
+{% endblock %}

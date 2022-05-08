@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Auteur{% endblock %}
+
+{% block body %}
+<div class="container py-3">
+    <h3>Auteur</h3>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ auteur.id }}</td>
+            </tr>
+            <tr>
+                <th>Nomprenom</th>
+                <td>{{ auteur.nomprenom }}</td>
+            </tr>
+            <tr>
+                <th>Sexe</th>
+                <td>{{ auteur.sexe }}</td>
+            </tr>
+            <tr>
+                <th>Date_de_naissance</th>
+                <td>{{ auteur.dateDeNaissance ? auteur.dateDeNaissance|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ auteur.nationalite }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+     <h3>Livres</h3>
+
+    
+    <table class="table">
+        <tbody>
+           {% for livre in auteur.livres %}
+            <tr>
+                <th>Titre</th>
+                <td>{{ livre.titre }}</td>
+            </tr>
+         {% endfor %}
+        </tbody>
+    <table>
+   
+    
+    <h3>Genres</h3>
+    
+
+   
+    <table class="table">
+        <tbody>
+  {% for genre in genres %}
+            <tr>
+             
+                <th>Genre</th>
+                <td>
+                {{ genre.nom }}
+                </td>  
+                
+            </tr>
+     {% endfor %}
+      
+        </tbody>
+    <table>
+    
+ <h3>Genres par ordre chronologique</h3>
+       
+       
+        <table class="table">
+         {% for genre in genres %}
+        {% for chrono in chro %}
+            <tr>
+                <td>{{genre.nom}}</td>   
+                <td>{{chrono.date_de_parution | date('d/m/Y')}}</td>   
+            </tr>
+        </thead>
+        {% else %}
+       <tr>
+       <td olspan="3"> No result </td>
+       </tr>
+       {% endfor %}
+       {% endfor %}
+       </table>
+     
+    <a href="{{ path('auteur_index') }}" class="btn btn-primary">Retour</a>
+    
+{% endblock %}
